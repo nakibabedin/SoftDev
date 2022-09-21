@@ -1,3 +1,8 @@
+#string_times
+def string_times(str, n):
+  return n * str
+
+#front_times
 def front_times(str, n):
   if (len(str) < 3):
     return str * n
