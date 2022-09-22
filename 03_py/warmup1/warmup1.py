@@ -4,7 +4,7 @@ def sleep_in(weekday, vacation):
   return weekday==False or vacation == True
 
 print(sleep_in(False, False)) # True
-print(sleep_in(True, False) # False
+print(sleep_in(True, False)) # False
 print(sleep_in(False, True)) # True
 
 
@@ -120,7 +120,7 @@ def front_back(str):
   return str[-1] + middle + str[0]
 
 print(front_back('code') )
-pritn(front_back('a') )
+print(front_back('a') )
 print(front_back('ab') )
 
 
