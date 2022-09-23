@@ -4,7 +4,7 @@ def sleep_in(weekday, vacation):
   return weekday==False or vacation == True
 
 print(sleep_in(False, False)) # True
-print(sleep_in(True, False) # False
+print(sleep_in(True, False)) # False
 print(sleep_in(False, True)) # True
 
 
@@ -58,7 +58,7 @@ print(front3('abc'))
 
 #diff21
 # Given an int n, return the absolute difference between n and 21, except return double the absolute difference if n is over 21.
-def diff21():
+def diff21(n):
   if(n>21):
     return 2* (n-21)
   else:
@@ -120,7 +120,7 @@ def front_back(str):
   return str[-1] + middle + str[0]
 
 print(front_back('code') )
-pritn(front_back('a') )
+print(front_back('a') )
 print(front_back('ab') )
 
 
