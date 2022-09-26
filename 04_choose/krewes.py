@@ -20,6 +20,7 @@ OPS Summary:
 '''
 
 import random as rng
+from re import I, M
 
 #krewes = {1:['A', 'B', 'C'], 2:['D', 'E', 'F']}
 krewes = {
@@ -29,12 +30,19 @@ krewes = {
          }
 
 
+# def find_devo(krewes):
+#     keys = list(krewes)
+#     index = rng.randint(0, len(keys)-1)
+#     key = keys[index]
+#     rando_value = rng.randint(0, len(krewes[key])-1)
+#     return "The devo you picked is " + krewes[key][rando_value] + " in period " + str(key)
+
 def find_devo(krewes):
     keys = list(krewes)
     index = rng.randint(0, len(keys)-1)
     key = keys[index]
     rando_value = rng.randint(0, len(krewes[key])-1)
-    return "The devo you picked is " + krewes[key][rando_value] + " in period " + str(key)
+    return krewes[key][rando_value]
 
 def find_devo_pd(krewes):
     print("Which period do you want a random devo from?")
@@ -44,21 +52,44 @@ def find_devo_pd(krewes):
     rando_value = rng.randint(0, len(krewes[pd])-1)
     return "The devo you picked is " + krewes[pd][rando_value] + " from your chosen period " + str(pd)
 
-while(True):
-    print("Which of the following methods do you want to run?")
-    print("0: find a random devo from any period")
-    print("1: find a random devo from a period of your choice")    
-program = int(input())
-    if(program == 0):
-        print(find_devo(krewes))
-        input
-    elif(program == 1):
-        print(find_devo_pd(krewes))
-        
-    print("Do you want to continue? Press y for yes, n for no")
-    again = input()
-    if(again != "y"):
-        break
+def find_devo_hangman(krewes):
+    devo = find_devo(krewes)
+    name = list(devo)
+    temp = []
+    counter = 0
+    while(True): 
+        string = ""
+        for i in range(len(name)):
+                if name[i] not in temp:
+                    string += "_ "
+                else:
+                    string += name[i] + " "
+        print(string)
+        print("Guess a letter")
+        print(name)
+        guess = input().upper()
+        if guess not in name:
+            counter += 1 
+            print(" You dumb bro. Number of incorrect guesses: " + str(counter))
+            print("Guesses remaining ")
+        else: #if guess is correct
+            temp.append(guess)
+        if(string == devo ):
+            break
+    print("you have won the game")
+
+# print("Which of the following methods do you want to run?")
+# print("0: find a random devo from any period")
+# print("1: find a random devo from a period of your choice")    
+# program = int(input())
+# if(program == 0):
+#     print(find_devo(krewes))
+#     input
+# elif(program == 1):
+#     print(find_devo_pd(krewes))
+
+print(find_devo_hangman(krewes))
+    
 
 
 
