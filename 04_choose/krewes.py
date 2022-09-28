@@ -45,12 +45,14 @@ def find_devo(krewes):
     return krewes[key][rando_value]
 
 def find_devo_pd(krewes):
-    print("Which period do you want a random devo from?")
-    pd = int(input())
-    if(pd != 2 and pd != 7 and pd != 8):
-        print("GG.")
-    rando_value = rng.randint(0, len(krewes[pd])-1)
-    return "The devo you picked is " + krewes[pd][rando_value] + " from your chosen period " + str(pd)
+    while(True):
+        print("Which period do you want a random devo from?")
+        pd = int(input())
+        if(pd != 2 and pd != 7 and pd != 8):
+            print("No such period exists..")
+            continue
+        rando_value = rng.randint(0, len(krewes[pd])-1)
+        return "The devo you picked is " + krewes[pd][rando_value] + " from your chosen period " + str(pd)
 
 def find_devo_hangman(krewes):
     devo = find_devo(krewes)
@@ -65,32 +67,54 @@ def find_devo_hangman(krewes):
                 else:
                     string += name[i] + " "
         print(string)
-        print("Guess a letter")
-        print(name)
+        if(string.replace(" ", "") == devo):
+            break        
+        print("Would you like to guess the full name?")
+        choice = input().lower()
+        if (choice == "yes" or choice == "y"):
+            print("Guess the name: ")
+            full_guess = input().upper()
+            if (full_guess != devo):
+                counter += 1
+                print("You dumb bro.")
+                print("Guesses remaining: " + str(6 - counter))
+                if (counter == 6):
+                    return "GAME OVER!!!!!!!!!!!!!!!!!!!\nThe devo's name was " + devo
+            else:
+               print(devo)
+               return "You have won the game!"
+            continue          
+        print("Guess the letter: ")    
         guess = input().upper()
         if guess not in name:
-            counter += 1 
-            print(" You dumb bro. Number of incorrect guesses: " + str(counter))
-            print("Guesses remaining ")
+            if (len(guess) > 1):
+                print("Ummm that's not how hangman works and you're gonna lose all those points bud")
+            elif (ord(guess) < 65 or ord(guess) > 90):
+                print("Bruh that's not even a letter. You deserve whatever comes to you.")
+            else:
+                print("You dumb bro.")
+            counter += len(guess)
+            print("Guesses remaining: " + str(6 - counter))
+            if (counter >= 6):
+                return "GAME OVER!!!!!!!!!!!!!!!!!!!\nThe devo's name was " + devo            
         else: #if guess is correct
             temp.append(guess)
-        if(string == devo ):
-            break
-    print("you have won the game")
+    return "You have won the game!"
 
-# print("Which of the following methods do you want to run?")
-# print("0: find a random devo from any period")
-# print("1: find a random devo from a period of your choice")    
-# program = int(input())
-# if(program == 0):
-#     print(find_devo(krewes))
-#     input
-# elif(program == 1):
-#     print(find_devo_pd(krewes))
-
-print(find_devo_hangman(krewes))
-    
-
-
-
-    
+while(True):
+    print("Which of the following methods do you want to run?")
+    print("0: find a random devo from any period")
+    print("1: find a random devo from a period of your choice")
+    print("2: play hangman")
+    program = int(input())
+    if(program == 0):
+        print(find_devo(krewes))
+    elif(program == 1):
+        print(find_devo_pd(krewes))
+    elif(program == 2):
+        print(find_devo_hangman(krewes))
+    print("Would you like to play again?")
+    choice = input()
+    if (choice.lower() == "no"):
+        print("aight..")
+        break
