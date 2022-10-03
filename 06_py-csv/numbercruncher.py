@@ -3,6 +3,7 @@
 # K06 -- working with a txt
 # 2022-29-2022
 #
+<<<<<<< HEAD
 # Disco :
 # 0) random.choices weights argument does not accept decimal values
 # 1) rsplit splits the string starting from the last value
@@ -52,3 +53,14 @@ def many_times():
     print (sum/1000)
     
 many_times()
+=======
+# Disco
+# QCC
+# OPS
+# 0) Store all of the information from the CSV file in a dictionary
+# 1) 
+#
+#
+
+
+>>>>>>> 9af9822f4b0e258b3af6cbe5120a9a6d71f4a2ff
