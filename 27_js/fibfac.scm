@@ -1,9 +1,11 @@
-;Team Phantom Tollbooth :: Clyde Sinclair, Fierce Dragon
-;SoftDev pd0
+;Team David and Nakib (DAN) | David Chen, Nakib Abedin
+;SoftDev pd08
 ;K27 -- Basic functions in JavaScript
-;2023-04-03t
+;2023-04-04w
+;Time Spent: 0.5 hr
 
 ;Scheme Antecedents for JS work
+
 
 ;factorial:
 (define
