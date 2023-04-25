@@ -1,3 +1,11 @@
+/*
+DAN: David Chen and Nakib Abedin
+SoftDev pd8
+k30 -- JS Paint
+2023-04-24
+Time Spent: 1.0 hr
+*/
+
 //retrieve node in DOM via ID
 var c = getElementById("slate");
 
@@ -17,24 +25,29 @@ var toggleMode = (e) => {
     }
 }
 
-// var drawRect = function(e){
-//     var mouseX = e.offsetX;
-//     var mouseY = e.offsetY;
-//     console.log("mouseclick registered at ", mouseX, mouseY);
+var drawRect = function(e){
+    var mouseX = e.offsetX;
+    var mouseY = e.offsetY;
+    console.log("mouseclick registered at ", mouseX, mouseY);
+    ctx.fillRect(mouseX, mouseY, 80, 100);
+}
 
-// }
+//var drawCircle = function(e) {
+var drawCircle = (e) => {
+    var mouseX = e.offsetX;
+    var mouseY = e.offsetY;
+    console.log("mouseclick registered at ", mouseX, mouseY);
+    ctx.beginPath();
+    ctx.arc(mouseX, mouseY, 75, 0, 2 * 3.1415, true);
+    ctx.stroke();
+    ctx.fill();
+}
 
-// //var drawCircle = function(e) {
-// var drawCircle = (e) => {
-
-//     console.log("mouseclick registered at ", mouseX, mouseY);
-
-// }
-
-// //var draw = function(e){
-// var draw = (e) => {
-
-// }
+//var draw = function(e){
+var draw = (e) => {
+    if(mode == "rect") drawRect();
+    else drawCircle();
+}
 
 // //var wipeCanvas = function() {
 // var wipeCanvas = () => {
