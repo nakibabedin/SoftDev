@@ -3,6 +3,7 @@ kibby guoblers: nakib, Jacob Guo
 SoftDev pd8
 K32 -- animation in canvas JS
 2023-04-27t
+Time Spent: 0.5 hrs
 */
 
 var c = document.getElementById("playground");
@@ -69,10 +70,10 @@ var dvdLogoSetup = function() {
         ctx.clearRect(0, 0, c.width, c.height );
         ctx.drawImage( logo, rectX, rectY, rectWidth, rectHeight);
         if (rectY <= 0 || rectY >= c.height - rectHeight ){
-            xVel = -xVel;
+            yVel = -yVel;
         }
         if (rectX <= 0 || rectX >= c.width - rectWidth ){
-            yVel = -yVel;
+            xVel = -xVel;
         }
         rectX = rectX + xVel;
         rectY = rectY + yVel;
